@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
+    //ABSTRACTION
     protected float m_currentTime = 0f;
     protected bool m_hasFired = false;
+
+
     [SerializeField] protected GameObject m_projectile;
-    protected int m_maxAmmo = 6;
-    public int MaxAmmo
-    {
-        get {
-            return m_maxAmmo;
-        }
-        set {
-            if (value > 0) {
-                m_maxAmmo = value;
-            }
-            else {
-                Debug.Log( "Cannot set ammo amount below zero." );
-            }
-        }
-    }
-    protected float m_fireDelay = 0.5f;
+
+    //ENCAPSULATION
+    protected float m_fireDelay = 1f;
     public float FireDelay
     {
         get { return m_fireDelay; }
@@ -34,16 +23,6 @@ public class Weapon : MonoBehaviour
         }
     }
 
-
-    //// Start is called before the first frame update
-    //void Start() {
-
-    //}
-
-    //// Update is called once per frame
-    //void Update() {
-
-    //}
 
     public void Shoot(Vector3 gunPosition) {
         if (CanFire() ) {
@@ -65,12 +44,8 @@ public class Weapon : MonoBehaviour
             m_hasFired = false;
         }
 
-
         return false;
     }
-
-
-
 
     protected virtual void CreateVolley(Vector3 userPosition) {
         GameObject clone = Instantiate( m_projectile, userPosition, m_projectile.transform.rotation );

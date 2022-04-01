@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+
+    //ENCAPSULATION
     private float m_Speed = 500f;
     public float Speed
     {
@@ -18,18 +20,6 @@ public class Projectile : MonoBehaviour
                 Debug.Log( "Cannot set speed to a negative number" );
             }
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void MoveProjectile() {

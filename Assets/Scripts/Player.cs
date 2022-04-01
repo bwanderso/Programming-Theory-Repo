@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
         HandleShoot();
     }
 
+
+    //ABSTRACTION
     private void HandleShoot() {
         if (Input.GetKey(KeyCode.Space)) {
             if (m_weapon != null) {
@@ -49,12 +51,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
-        // If we ran over a weapon, equip it and destroy the GO
+        // If we ran over a weapon, equip it.
         if ( other.CompareTag( "Weapon" ) ) {
             m_weapon = other.GetComponent<Weapon>();
             
-        } else {
-            Debug.Log( "Player triggered" );
         }
     }
 }

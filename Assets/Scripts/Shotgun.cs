@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//INHERITANCE
 public class Shotgun : Weapon
 {
     private float m_angleSpread = 20f;
@@ -12,12 +14,7 @@ public class Shotgun : Weapon
         m_fireDelay = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //POLYMORPHISM
     protected override void CreateVolley(Vector3 gunPosition) {
         CreateSpread(gunPosition);
     }
