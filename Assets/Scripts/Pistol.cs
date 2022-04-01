@@ -9,7 +9,7 @@ public class Pistol : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        m_fireDelay = 1f;
+        m_fireDelay = 0.5f;
     }
 
     // Update is called once per frame

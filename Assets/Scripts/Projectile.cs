@@ -34,7 +34,8 @@ public class Projectile : MonoBehaviour
 
     public void MoveProjectile() {
         Rigidbody bulletRB = GetComponent<Rigidbody>();
-        bulletRB.AddForce( Vector3.forward * m_Speed );
+        //bulletRB.AddForce( Vector3.forward * m_Speed );
+        bulletRB.AddRelativeForce( Vector3.up * m_Speed );
     }
 
     public void OnCollisionEnter(Collision collision) {

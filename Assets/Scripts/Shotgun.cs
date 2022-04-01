@@ -9,7 +9,7 @@ public class Shotgun : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        m_fireDelay = 3f;
+        m_fireDelay = 1f;
     }
 
     // Update is called once per frame
@@ -23,9 +23,8 @@ public class Shotgun : Weapon
     }
 
     private void CreateSpread(Vector3 gunPosition) {
-        
-        Quaternion leftSpread = m_projectile.transform.rotation * Quaternion.Euler( Vector3.up * -m_angleSpread );
-        Quaternion rightSpread = m_projectile.transform.rotation * Quaternion.Euler( Vector3.up * m_angleSpread );
+        Quaternion leftSpread = m_projectile.transform.rotation * Quaternion.Euler( new Vector3(0, 0, m_angleSpread ));
+        Quaternion rightSpread = m_projectile.transform.rotation * Quaternion.Euler( new Vector3( 0, 0, -m_angleSpread ) );
 
         CreateParticle( gunPosition, leftSpread );
         CreateParticle( gunPosition, m_projectile.transform.rotation );

@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    protected float m_fireDelay = 1f;
+    protected float m_fireDelay = 0.5f;
     public float FireDelay
     {
         get { return m_fireDelay; }
