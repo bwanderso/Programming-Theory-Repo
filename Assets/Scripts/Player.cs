@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     }
 
     private void HandleShoot() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space)) {
             if (m_weapon != null) {
 
                 //Fire weapon slightly ahead of current player's position

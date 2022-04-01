@@ -45,40 +45,33 @@ public class Weapon : MonoBehaviour
 
     //}
 
-// REFACTOR TO USE COROUTINES!
-
-    public virtual void Shoot(Vector3 userPosition) {
-        Debug.Log( "Weapon Shoot: " + this.name );
-        //CreateVolley(userPosition);
-
-        if (!m_hasFired) {
+    public void Shoot(Vector3 userPosition) {
+        if (CanFire() ) {
             CreateVolley( userPosition );
-            m_hasFired = true;
+        }
+
+    }
+
+    protected bool CanFire() {
+        Debug.Log( "CanFire:  CurrentTime: " + m_currentTime + " m_fireDelay: " + m_fireDelay );
+        if (!m_hasFired) {
             m_currentTime = 0;
-            Debug.Log( "Weapon - Fire!" );
+            m_hasFired = true;
+            return true;
         }
 
-        if (m_hasFired) {
-            if (m_currentTime < m_fireDelay) {
-                m_currentTime += Time.deltaTime;
-                Debug.Log( "Weapon - waiting for refire" );
-
-            }
-            else {
-                m_hasFired = false;
-                Debug.Log( "Weapon - refire time reset" );
-            }
+        if (m_hasFired && m_currentTime < m_fireDelay) {
+            m_currentTime += Time.deltaTime;
+        } else {
+            m_hasFired = false;
         }
-    }
 
-    protected IEnumerable WaitForRefire(Vector3 userPosition) {
-        Debug.Log( "Weapon Waiting for Refire: " + m_fireDelay );
-        CreateVolley( userPosition );
-        yield return new WaitForSeconds( m_fireDelay );
+
+        return false;
     }
 
 
-// END REFACTOR
+
 
     protected virtual void CreateVolley(Vector3 userPosition) {
         GameObject clone = Instantiate( m_projectile, userPosition, m_projectile.transform.rotation );
@@ -89,3 +82,14 @@ public class Weapon : MonoBehaviour
 
     }
 }
+
+
+//----------DEPRECATED BUT KEPT
+
+//protected IEnumerator WaitForRefire(Vector3 userPosition) {
+//    while ( true ) { 
+//        Debug.Log( "Weapon Waiting for Refire: " + m_fireDelay );
+//        CreateVolley( userPosition );
+//        yield return new WaitForSeconds( m_fireDelay );
+//    }
+//}
