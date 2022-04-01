@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float m_Speed = 5f;
-    private Rigidbody m_Rigidbody;
+    private float m_Speed = 500f;
     public float Speed
     {
         get {
@@ -24,7 +23,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -34,6 +33,7 @@ public class Projectile : MonoBehaviour
     }
 
     public void MoveProjectile() {
-        m_Rigidbody.AddForce( Vector3.forward * m_Speed );
+        Rigidbody bulletRB = GetComponent<Rigidbody>();
+        bulletRB.AddForce( Vector3.forward * m_Speed );
     }
 }

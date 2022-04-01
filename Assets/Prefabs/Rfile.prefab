@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 5868072728749385786}
   - component: {fileID: 5858319471488261336}
   - component: {fileID: 5843467012459344606}
+  - component: {fileID: 1487773508334450}
   m_Layer: 0
   m_Name: Rfile
   m_TagString: Weapon
@@ -259,7 +260,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e3a2ca8507c4e888d308f93b853ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_projectile: {fileID: 0}
+  m_projectile: {fileID: 2995103854690265443, guid: 2f48f9dc9dd1b45839d70c8b0acbd06e, type: 3}
+--- !u!65 &1487773508334450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5844937116071902310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25392178, y: 0.16676852, z: 0.770726}
+  m_Center: {x: 0.07761544, y: -0.03621252, z: -0.06259713}
 --- !u!1 &5845376165631318582
 GameObject:
   m_ObjectHideFlags: 0

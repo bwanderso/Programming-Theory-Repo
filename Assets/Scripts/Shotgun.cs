@@ -9,7 +9,7 @@ public class Shotgun : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        base.FireDelay = 3f;
+        m_fireDelay = 3f;
     }
 
     // Update is called once per frame
@@ -18,10 +18,8 @@ public class Shotgun : Weapon
         
     }
 
-    protected override IEnumerable CreateVolley(Vector3 userPosition) {
+    protected override void CreateVolley(Vector3 userPosition) {
         CreateSpread(userPosition);
-
-        yield return new WaitForSeconds( base.FireDelay );
     }
 
     private void CreateSpread(Vector3 userPosition) {
@@ -35,7 +33,9 @@ public class Shotgun : Weapon
     }
 
     private void CreateParticle(Vector3 userPosition, Quaternion angle) {
-        Projectile clone = Instantiate( m_projectile, userPosition, angle );
-        clone.MoveProjectile();
+        GameObject clone = Instantiate( m_projectile, userPosition, angle );
+
+        Projectile projectile = clone.GetComponent<Projectile>();
+        projectile.MoveProjectile();
     }
 }

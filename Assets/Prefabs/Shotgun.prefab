@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8774776651049772570}
   - component: {fileID: 8785051767871663942}
   - component: {fileID: 8772496098315464160}
+  - component: {fileID: 1236257701052490}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Weapon
@@ -96,7 +97,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99145691c6a774c86b68f4bba3b4e30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_projectile: {fileID: 7524943342408270828, guid: 2f48f9dc9dd1b45839d70c8b0acbd06e, type: 3}
+  m_projectile: {fileID: 2995103854690265443, guid: 2f48f9dc9dd1b45839d70c8b0acbd06e, type: 3}
+--- !u!65 &1236257701052490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771409981388041868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34453106, y: 0.19232105, z: 0.97656256}
+  m_Center: {x: 0.076095164, y: -0.060467307, z: 0.009858894}
 --- !u!1 &8771495533814019432
 GameObject:
   m_ObjectHideFlags: 0
