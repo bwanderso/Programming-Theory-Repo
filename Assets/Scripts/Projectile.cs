@@ -36,4 +36,10 @@ public class Projectile : MonoBehaviour
         Rigidbody bulletRB = GetComponent<Rigidbody>();
         bulletRB.AddForce( Vector3.forward * m_Speed );
     }
+
+    public void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Ground")) {
+            Destroy( gameObject );
+        }
+    }
 }

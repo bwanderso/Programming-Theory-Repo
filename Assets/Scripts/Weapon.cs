@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
 
     public virtual void Shoot(Vector3 userPosition) {
         Debug.Log( "Weapon Shoot: " + this.name );
-        CreateVolley(userPosition);
+        //CreateVolley(userPosition);
 
         if (!m_hasFired) {
             CreateVolley( userPosition );
