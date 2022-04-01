@@ -45,15 +45,14 @@ public class Weapon : MonoBehaviour
 
     //}
 
-    public void Shoot(Vector3 userPosition) {
+    public void Shoot(Vector3 gunPosition) {
         if (CanFire() ) {
-            CreateVolley( userPosition );
+            CreateVolley( gunPosition );
         }
 
     }
 
     protected bool CanFire() {
-        Debug.Log( "CanFire:  CurrentTime: " + m_currentTime + " m_fireDelay: " + m_fireDelay );
         if (!m_hasFired) {
             m_currentTime = 0;
             m_hasFired = true;

@@ -18,22 +18,22 @@ public class Shotgun : Weapon
         
     }
 
-    protected override void CreateVolley(Vector3 userPosition) {
-        CreateSpread(userPosition);
+    protected override void CreateVolley(Vector3 gunPosition) {
+        CreateSpread(gunPosition);
     }
 
-    private void CreateSpread(Vector3 userPosition) {
+    private void CreateSpread(Vector3 gunPosition) {
         
         Quaternion leftSpread = m_projectile.transform.rotation * Quaternion.Euler( Vector3.up * -m_angleSpread );
         Quaternion rightSpread = m_projectile.transform.rotation * Quaternion.Euler( Vector3.up * m_angleSpread );
 
-        CreateParticle( userPosition, leftSpread );
-        CreateParticle( userPosition, m_projectile.transform.rotation );
-        CreateParticle( userPosition, rightSpread );
+        CreateParticle( gunPosition, leftSpread );
+        CreateParticle( gunPosition, m_projectile.transform.rotation );
+        CreateParticle( gunPosition, rightSpread );
     }
 
-    private void CreateParticle(Vector3 userPosition, Quaternion angle) {
-        GameObject clone = Instantiate( m_projectile, userPosition, angle );
+    private void CreateParticle(Vector3 gunPosition, Quaternion angle) {
+        GameObject clone = Instantiate( m_projectile, gunPosition, angle );
 
         Projectile projectile = clone.GetComponent<Projectile>();
         projectile.MoveProjectile();
